@@ -1,4 +1,4 @@
-angular.module('pizzarankApp', [
+var app = angular.module('pizzarankApp', [
     'ngRoute',
     /*
     'restaurantList',
@@ -10,7 +10,7 @@ angular.module('pizzarankApp', [
     'ui.validate',
 ])
 
-.config(['$locationProvider' ,'$routeProvider', '$httpProvider', 'jwtOptionsProvider',  
+app.config(['$locationProvider' ,'$routeProvider', '$httpProvider', 'jwtOptionsProvider',  
     function config($locationProvider, $routeProvider, $httpProvider, jwtOptionsProvider) {
       $locationProvider.hashPrefix('!');
 
@@ -48,11 +48,9 @@ angular.module('pizzarankApp', [
     }
   ]);
 
-angular
-  .module('pizzarankApp')
-  .run(['authManager', function(authManager) {
+app.run(['authManager', function(authManager) {
 
     authManager.checkAuthOnRefresh();
 
-  }]);
+}]);
   
