@@ -1,0 +1,24 @@
+{
+  "name": "pizzarank-restaurant",
+  "main": "server.js",
+  "description": "Pizzarank restaurant/review microservice",
+  "license": "MIT",
+  "repository": "https://github.com/grantrules/pizzarank/pizzarank-restaurant/",
+  "scripts": {
+    "test": "mocha",
+    "stop": "pkill --signal SIGTERM prRestaurants",
+    "kill": "pkill --signal SIGKILL prRestaurants"
+
+  },
+  "dependencies": {
+    "@google/maps": "^0.3.1",
+    "aws-sdk": "^2.30.0",
+    "body-parser": "~1.0.1",
+    "express": "~4.15.0",
+    "mocha": "^3.2.0",
+    "mongoose": "~4.8.6",
+    "passport": "~0.3.2",
+    "passport-jwt": "^2.2.1",
+    "slug": "^0.9.1"
+  }
+}

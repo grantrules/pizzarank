@@ -1,0 +1,24 @@
+{
+  "name": "pizzarank-users",
+  "main": "server.js",
+  "description": "pizzarank users microservice",
+  "license": "MIT",
+  "repository": "https://github.com/grantrules/pizzarank/pizzarank-users",
+  "scripts": {
+    "test": "mocha",
+    "stop": "pkill --signal SIGINT prUsers",
+    "kill": "pkill --signal SIGKILL prUsers"
+
+  },
+  "dependencies": {
+    "body-parser": "~1.0.1",
+    "express": "~4.15.0",
+    "mocha": "^3.2.0",
+    "mongoose": "~4.8.6",
+    "passport": "~0.3.2",
+    "passport-google": "~0.3.0",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0",
+    "slug": "^0.9.1"
+  }
+}

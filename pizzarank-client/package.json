@@ -1,0 +1,26 @@
+{
+  "name": "pizzarank-client",
+  "description": "Pizzarank angularjs client",
+  "license": "MIT",
+  "repository": "https://github.com/grantrules/pizzarank/pizzarank-client",
+  "scripts": {
+    "test": "mocha",
+    "build": "minify --output minified.js user/user.js user/user-login-form.js user/user-register-form.js restaurant/restaurant.js restaurant/restaurant-detail.js restaurant/restaurant-list.js restaurant/restaurant-rating-form.js app.js"
+  },
+  "dependencies": {
+    "@google/maps": "^0.3.1",
+    "angular": "^1.6.2",
+    "angular-animate": "^1.6.3",
+    "angular-jwt": "^0.1.9",
+    "angular-mocks": "^1.6.3",
+    "angular-resource": "^1.6.3",
+    "angular-route": "^1.6.3",
+    "angular-ui-bootstrap": "^2.5.0",
+    "angular-ui-validate": "^1.2.2",
+    "aws-sdk": "^2.30.0",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "minify": "^2.0.13",
+    "mongoose": "~4.8.6"
+  }
+}

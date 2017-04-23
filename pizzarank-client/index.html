@@ -1,0 +1,133 @@
+<!doctype html>
+<html ng-app="pizzarankApp">
+
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Pizza Rank</title>
+        <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+
+        <script src="/node_modules/angular/angular.js"></script>
+        <script src="/node_modules/angular-animate/angular-animate.js"></script>
+        <script src="/node_modules/angular-resource/angular-resource.js"></script>
+        <script src="/node_modules/angular-route/angular-route.js"></script>
+        <script src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+        <script src="/node_modules/angular-ui-validate/dist/validate.js"></script>
+        <script src="/node_modules/angular-jwt/dist/angular-jwt.js"></script>
+
+        
+        <!-- script src="user/user.js"></script>
+        <script src="user/user-login-form.js"></script>
+        <script src="user/user-register-form.js"></script>
+
+
+
+        <script src="restaurant/restaurant.js"></script>
+        <script src="restaurant/restaurant-detail.js"></script>
+        <script src="restaurant/restaurant-list.js"></script>
+        <script src="restaurant/restaurant-rating-form.js"></script>
+
+        <script src="app.js"></script -->
+        <script src="minified.js"></script>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<script type="text/javascript">
+		$(document).ready(function(e){
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+		e.preventDefault();
+		var param = $(this).attr("href").replace("#","");
+		var concept = $(this).text();
+		$('.search-panel span#search_concept').text(concept);
+		$('.input-group #search_param').val(param);
+	});
+});
+	</script>
+
+</head>
+
+<body>
+	
+	<div class="container">
+		<a href="/"><img class="img-responsive" src="/static/images/pizzarank.jpg"></a>
+        
+        <div class="row">
+            <div ng-if="$root.isAuthenticated">Logged in</div>
+            <div ng-if="!$root.isAuthenticated"><a href="#!/login">Login</a> or <a href="#!/register">Register</a></div>
+        </div>
+		
+		<!-- http://bootsnipp.com/snippets/featured/search-panel-with-filters -->
+		<div class="row" ng-controller="SearchCtrl">    
+        <div class="col-xs-8 col-xs-offset-2">
+		    <div class="input-group">
+                <div class="input-group-btn search-panel">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    	<span id="search_concept">All Boroughs</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#manhattan">Manhattan</a></li>
+                      <li><a href="#brooklyn">Brooklyn</a></li>
+                      <li><a href="#state-island">Staten-Island</a></li>
+                      <li><a href="#queens">Queens</a></li>
+					  <li><a href="#the-bronx">The Bronx</a></li>
+					  <li class="divider"></li>
+						<li><a href="#">All Boroughs</a></li>
+                    </ul>
+                </div>
+                <input type="hidden" name="search_param" value="all" id="search_param">
+                
+                
+                
+                <script type="text/ng-template" id="customPopupTemplate.html">
+  <div class="custom-popup-wrapper"
+     ng-style="{top: position().top+'px', left: position().left+'px'}"
+     style="display: block;"
+     ng-show="isOpen() && !moveInProgress"
+     aria-hidden="{{!isOpen()}}">
+    <p class="message">select location from drop down.</p>
+
+    <ul class="dropdown-menu" role="listbox">
+      <li class="uib-typeahead-match" ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
+        ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
+        <div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
+      </li>
+    </ul>
+  </div>
+</script>
+                
+                
+                
+                <input type="text" ng-model="asyncSelected" placeholder="Search..." uib-typeahead="name.name for name in getRestaurants($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control" typeahead-on-select="onSelect($item, $model, $label)">
+    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+    <div ng-show="noResults">
+      <i class="glyphicon glyphicon-remove"></i> No Results Found
+    </div>
+                <!-- input type="text" class="form-control" name="x" placeholder="Search term..." -->
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+        </div>
+	</div>
+
+<nav>
+
+</nav>
+        
+        
+        <div class="view-container">
+            <div ng-view class="view-frame"></div>
+        </div>
+    
+<hr>
+
+<footer class="text-muted">
+	&copy; Pizzarank, source available on <a href="https://github.com/grantrules/pizzarank">GitHub</a>. Made with python, pizza, beer, and constant xbox breaks
+
+</footer>
+		
+	</div>
+
+</body>
+</html>

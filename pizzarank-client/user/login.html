@@ -1,0 +1,25 @@
+<form ng-submit="submit()">
+			<div class="row">
+				<div class="col-md-6">
+						<div class="form-group">
+						<label for="email">Username</label>
+							<input ng-model="email" id="email" maxlength="254" name="email" type="email" required class="form-control" placeholder="Enter email"/>
+						<!-- input type="text" class="form-control" id="InputUsername" aria-describedby="emailHelp" placeholder="Enter email" -->
+						</div>
+						<div class="form-group">
+						<label for="password">Password</label>
+						<input ng-model="password" type="password" class="form-control" id="password" name="password" placeholder="Password">
+						</div>
+				</div>
+				<div class="col-md-6">
+					  <button type="submit" class="btn btn-primary">Log in</button> or   <a href="" class="btn btn-info">Register</a> to post a review
+					
+					<p>Forgot your password? <a href="">Recover your account</a></p>
+
+
+						
+				</div>
+
+			</div>
+		<input type="hidden" name="next" value="">	
+		</form>

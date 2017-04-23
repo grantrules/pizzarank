@@ -1,0 +1,11 @@
+
+	<h2>Restaurants</h2>
+
+	<ul>
+		<li ng-repeat="restaurant in $ctrl.restaurants"><!-- | filter:$ctrl.query | orderBy:$ctrl.orderProp" -->
+            <h2><a href="#!/restaurant/{{restaurant.slug}}">{{restaurant.name}}</a></h2>
+			
+        </li>
+	</ul>
+
+<a href="">Missing your favorite pizza joint? Suggest it!</a>

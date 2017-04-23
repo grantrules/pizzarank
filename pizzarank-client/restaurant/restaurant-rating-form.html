@@ -1,0 +1,43 @@
+		<h2>Write a Review</h2>
+		
+		<form ng-submit="submit()">
+            <!-- input type="hidden" name="restaurant" value="{{$ctrl.restaurant._id}}" ng-model="restaurant" -->
+			
+			<div class="form-group">
+						<label for="username">Title</label>
+							<input id="username" ng-model="title" maxlength="254" name="title" type="text" required class="form-control" placeholder="Enter title"/>
+			</div>
+			
+		
+			
+			<!-- label class="custom-control custom-checkbox label-primary">
+			  <input type="checkbox" class="custom-control-input">
+			  <span class="custom-control-indicator"></span>
+			  <span class="custom-control-description">tag</span>
+			</label -->
+			
+            <div class="form-group">
+            
+                <input type="hidden" name="rating" ng-model="rating">
+                <span class="glyphicon glyphicon-star {{rating < 1 ? 'text-muted' : ''}}" aria-hidden="true" ng-click="rating = 1"></span>
+                <span class="glyphicon glyphicon-star {{rating < 2 ? 'text-muted' : ''}}" aria-hidden="true" ng-click="rating = 2"></span>
+                <span class="glyphicon glyphicon-star {{rating < 3 ? 'text-muted' : ''}}" aria-hidden="true" ng-click="rating = 3"></span>
+                <span class="glyphicon glyphicon-star {{rating < 4 ? 'text-muted' : ''}}" aria-hidden="true" ng-click="rating = 4"></span>
+                <span class="glyphicon glyphicon-star {{rating < 5 ? 'text-muted' : ''}}" aria-hidden="true" ng-click="rating = 5"></span>
+            </div>
+            
+            
+            
+            
+			<div class="form-group">
+				<label for="reviewTextarea">Write your review</label>
+				<textarea ng-model="body" class="form-control" id="reviewTextarea" rows="3"></textarea>
+		  	</div>
+			
+			<button type="submit" class="btn btn-primary">Submit Review</button>
+			
+			
+		
+
+
+		</form>
